@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         // Pregen
 
-        webSocketClient = WebSocketClient("ws://95.165.27.159:7502")
+        webSocketClient = WebSocketClient("ws://95.165.27.159:8080")
         webSocketClient.start()
 
         val menuItems = MenuItems(this)
@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun activateLoginPage(view: View){
-
+        val intent = Intent(this, Login::class.java)
+        this.startActivity(intent)
     }
 }
