@@ -1,5 +1,6 @@
 package com.example.shessyoach.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -25,10 +26,10 @@ class SinglePlay : AppCompatActivity() {
             insets
         }
 
-        OpenLoadFragment();
+        openLoadFragment();
     }
 
-    private fun OpenLoadFragment(){
+    private fun openLoadFragment(){
         val fragment = LoadChessParty()
         supportFragmentManager.beginTransaction()
             .replace(R.id.down_frame_layout, fragment)
@@ -36,7 +37,7 @@ class SinglePlay : AppCompatActivity() {
             .commit()
     }
 
-    override fun onBackPressed() {
+    public fun openLeftMenu(view: View) {
         // Проверяем, видимо ли боковое меню
         if (isMenuVisible) {
             // Если меню открыто, закрываем его
@@ -65,5 +66,10 @@ class SinglePlay : AppCompatActivity() {
         val fragmentContainer = findViewById<View>(R.id.fragment_container)
         fragmentContainer.visibility = View.GONE
         isMenuVisible = false
+    }
+
+    fun activateLoginPage(view: View){
+        val intent = Intent(this, Login::class.java)
+        this.startActivity(intent)
     }
 }
