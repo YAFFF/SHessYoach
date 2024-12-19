@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.shessyoach.R
 import com.example.shessyoach.fragments.LeftMenuFragment
+import com.example.shessyoach.fragments.LoadChessParty
 
 class SinglePlay : AppCompatActivity() {
 
@@ -23,6 +24,16 @@ class SinglePlay : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        OpenLoadFragment();
+    }
+
+    private fun OpenLoadFragment(){
+        val fragment = LoadChessParty()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.down_frame_layout, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onBackPressed() {
